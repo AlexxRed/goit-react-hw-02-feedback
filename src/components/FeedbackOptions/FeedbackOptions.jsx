@@ -21,16 +21,22 @@ class FeedbackOptions extends Component {
         const buttonName = e.target.name
         console.log(buttonName);
         if (buttonName === 'Good') {
-            this.setState({
-                goodValue: 2,
+            this.setState(({goodValue}) => {
+                return {
+                    goodValue: goodValue +1
+                }
             })
         }if (buttonName === 'Neutral') {
-            this.setState({
-                neutralValue: 2,
+            this.setState(prevState => {
+                return {
+                    neutralValue: prevState.neutralValue +1
+                }
             })
         }if (buttonName === 'Bad') {
-            this.setState({
-                badValue: 2,
+            this.setState(({badValue}) => {
+                return {
+                    badValue: badValue +1
+                }
             })
         }
 
@@ -54,6 +60,22 @@ class FeedbackOptions extends Component {
     }
 }
 
+export default FeedbackOptions
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // export default function FeedbackOptions() {
 // return (
 //     <div className=''>
@@ -64,7 +86,7 @@ class FeedbackOptions extends Component {
 //   );
 // }
 
-export default FeedbackOptions
+
 // Statistics.propTypes = {
 //   dataStatistics: PropTypes.arrayOf(PropTypes.object).isRequired,
 // };

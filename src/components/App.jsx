@@ -6,7 +6,7 @@ export const App = () => {
   return (
     <div>
       <Section title="Please leave feedback">
-        <FeedbackOptions/>
+        <FeedbackOptions />
       </Section>
       <Section title="Statistics">
         <Statistics/>
