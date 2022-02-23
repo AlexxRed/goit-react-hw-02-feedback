@@ -6,11 +6,16 @@ import { Component } from 'react';
 class FeedbackOptions extends Component {
 
 
+    handleIncrement = (e) => {
+        console.log("click")
+        console.log(e);
+    }
+
     render() {
         return <div className=''>
-        <button type='button'>Good</button>
-        <button type='button'>Neutral</button>
-        <button type='button'>Bad</button>
+            <button type='button' onClick={this.handleIncrement}>Good</button>
+        <button type='button'  onClick={this.handleIncrement}>Neutral</button>
+        <button type='button'  onClick={this.handleIncrement}>Bad</button>
     </div>
     }
 }
