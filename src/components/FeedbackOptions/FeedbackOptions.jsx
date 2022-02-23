@@ -1,11 +1,11 @@
 import { Component } from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 
 
 
 class FeedbackOptions extends Component {
 
-    
+
     render() {
         return <div className=''>
         <button type='button'>Good</button>
