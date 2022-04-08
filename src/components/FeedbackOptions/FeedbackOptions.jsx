@@ -1,7 +1,29 @@
 import { Component } from 'react';
+import styled from '@emotion/styled'
 // import PropTypes from 'prop-types';
 
+const GoodButton = styled.button`
+    background-color: blue;
+    font-size: 14px;
+    padding: 5px;
+    margin-right: 10px;
+    color: darkblue;
+`
+const NeutralButton = styled.button`
+    background-color: green;
+    font-size: 14px;
+    color: darkblue;
+    padding: 5px;
+    margin-right: 10px;
 
+`
+const BadButton = styled.button`
+    background-color: yellow;
+    font-size: 14px;
+    padding: 5px;
+    color: darkblue;
+    
+`
 
 class FeedbackOptions extends Component {
     // constructor() {
@@ -45,12 +67,12 @@ class FeedbackOptions extends Component {
 
     render() {
         return <div className=''>
-        <button type='button' name='Good' onClick={this.handleIncrement}>Good</button>
-        <button type='button' name='Neutral' onClick={this.handleIncrement}>Neutral</button>
-        <button type='button' name='Bad' onClick={this.handleIncrement}>Bad</button>
+        <GoodButton type='button' name='Good' onClick={this.handleIncrement}>Good</GoodButton>
+        <NeutralButton type='button' name='Neutral' onClick={this.handleIncrement}>Neutral</NeutralButton>
+        <BadButton type='button' name='Bad' onClick={this.handleIncrement}>Bad</BadButton>
             <div style={{
                 display: 'flex',
-                marginLeft: '30px'
+                marginLeft: '60px'
             }}>
             <div>{this.state.goodValue}</div>
             <div>{this.state.neutralValue}</div>
