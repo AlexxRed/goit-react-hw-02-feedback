@@ -2,6 +2,7 @@ import { Component } from 'react';
 import Section from './Section/Section'
 import Statistics from './Statistics/Statistics'
 import FeedbackOptions from './FeedbackOptions/FeedbackOptions'
+import Notification from './Notification/Notification';
 
 class App extends Component{
 
@@ -23,7 +24,7 @@ state = {
 
 handleIncrement = (e) => {
   const buttonName = e.target.name
-  console.log(buttonName);
+  // console.log(buttonName);
   if (buttonName === 'Good') {
       this.setState(({goodValue}) => {
           return {
@@ -54,16 +55,16 @@ countTotalFeedback = () => {
 countPositiveFeedbackPercentage = () => {
   let positiveFeedbackPercentage = 0
   this.state.goodValue > 0 ?
-  positiveFeedbackPercentage = (this.state.goodValue + this.state.neutralValue + this.state.badValue) / 100 * this.state.goodValue * 100
+  positiveFeedbackPercentage = Math.round(100 / ((this.state.goodValue + this.state.neutralValue + this.state.badValue) / this.state.goodValue)) 
   : positiveFeedbackPercentage = 0 
   return positiveFeedbackPercentage
 }
 
   render(){
     const totalFeedback = this.countTotalFeedback()
-    const positivePercentage = this.countPositiveFeedbackPercentage
+    const positivePercentage = this.countPositiveFeedbackPercentage()
     const {goodValue, neutralValue, badValue} = this.state
-    console.log(totalFeedback)
+    // console.log(totalFeedback)
     return (
       <>
         <Section title="Please leave feedback">
@@ -86,15 +87,8 @@ countPositiveFeedbackPercentage = () => {
          percentage={positivePercentage}
          />
       ) : (
-        <p>No feedback.</p>
+        <Notification/>
       )}
-          {/* <Statistics
-          good={goodValue}
-          neutral={neutralValue}
-          bad={badValue}
-          total={totalFeedback}
-          percentage={positivePercentage}
-          /> */}
         </Section>
       </>
     );

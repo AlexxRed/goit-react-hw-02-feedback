@@ -7,10 +7,10 @@ const GoodButton = styled.button`
     padding: 5px;
     margin-right: 10px;
     color: darkblue;
+    border-radius: 5px;
     cursor: pointer;
     &:hover,&:focus {
         color: grey;
-        font-size: 16px;
     }
 `
 const NeutralButton = styled.button`
@@ -19,10 +19,11 @@ const NeutralButton = styled.button`
     color: darkblue;
     padding: 5px;
     margin-right: 10px;
+    border-radius: 5px;
     cursor: pointer;
     &:hover,&:focus {
         color: grey;
-        font-size: 16px;
+        
     }
 `
 const BadButton = styled.button`
@@ -31,9 +32,10 @@ const BadButton = styled.button`
     padding: 5px;
     color: darkblue;
     cursor: pointer;
+    border-radius: 5px;
     &:hover,&:focus {
         color: grey;
-        font-size: 16px;
+        
     }
 `
 

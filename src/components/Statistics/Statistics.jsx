@@ -1,6 +1,12 @@
 import styled from '@emotion/styled'
 // import PropTypes from 'prop-types';
 
+const StatisticsWrapper = styled.ul`
+    background-color: grey;
+    width: 200px;
+    border-radius: 5px;
+`
+
 const GoodFeedback = styled.li`
     background-color: blue;
     max-width: 70px;
@@ -14,15 +20,28 @@ const NeutralFeedback = styled.li`
 const BadFeedback = styled.li`
     background-color: yellow;
     max-width: 70px;
+    margin-bottom: 10px;
 `
 
-const Statistics = ({good, neutral, bad}) =>{
+const TotalFeedback = styled.li`
+    background-color: purple;
+    max-width: 70px;
+    margin-bottom: 10px;
+`
+const PositivePercentage = styled.li`
+    background-color: brown;
+    max-width: 170px;
+`
+
+const Statistics = ({good, neutral, bad, total, percentage}) =>{
     return (
-        <ul>
+        <StatisticsWrapper>
             <GoodFeedback>Good:{good}</GoodFeedback>
             <NeutralFeedback>Neutral:{neutral}</NeutralFeedback>
             <BadFeedback>Bad:{bad}</BadFeedback>
-        </ul>
+            <TotalFeedback>Total:{total}</TotalFeedback>
+            <PositivePercentage>Positive feedback:{percentage}%</PositivePercentage>
+        </StatisticsWrapper>
       );
 }
 export default Statistics
