@@ -1,4 +1,3 @@
-import { Component } from 'react';
 import styled from '@emotion/styled'
 // import PropTypes from 'prop-types';
 
@@ -8,6 +7,11 @@ const GoodButton = styled.button`
     padding: 5px;
     margin-right: 10px;
     color: darkblue;
+    cursor: pointer;
+    &:hover,&:focus {
+        color: grey;
+        font-size: 16px;
+    }
 `
 const NeutralButton = styled.button`
     background-color: green;
@@ -15,76 +19,125 @@ const NeutralButton = styled.button`
     color: darkblue;
     padding: 5px;
     margin-right: 10px;
-
+    cursor: pointer;
+    &:hover,&:focus {
+        color: grey;
+        font-size: 16px;
+    }
 `
 const BadButton = styled.button`
     background-color: yellow;
     font-size: 14px;
     padding: 5px;
     color: darkblue;
-    
+    cursor: pointer;
+    &:hover,&:focus {
+        color: grey;
+        font-size: 16px;
+    }
 `
 
-class FeedbackOptions extends Component {
-    // constructor() {
-    //     super();
-    //     this.state = {
-    //         value: 0,
-    //     }
-    // };
-    state = {
-        goodValue: 0,
-        neutralValue:0,
-        badValue: 0,
-    };
 
 
-    handleIncrement = (e) => {
-        const buttonName = e.target.name
-        console.log(buttonName);
-        if (buttonName === 'Good') {
-            this.setState(({goodValue}) => {
-                return {
-                    goodValue: goodValue +1
-                }
-            })
-        }if (buttonName === 'Neutral') {
-            this.setState(prevState => {
-                return {
-                    neutralValue: prevState.neutralValue +1
-                }
-            })
-        }if (buttonName === 'Bad') {
-            this.setState(({badValue}) => {
-                return {
-                    badValue: badValue +1
-                }
-            })
-        }
-
-        console.log(this.state);
-    }
-
-    render() {
-        return <div className=''>
-        <GoodButton type='button' name='Good' onClick={this.handleIncrement}>Good</GoodButton>
-        <NeutralButton type='button' name='Neutral' onClick={this.handleIncrement}>Neutral</NeutralButton>
-        <BadButton type='button' name='Bad' onClick={this.handleIncrement}>Bad</BadButton>
-            <div style={{
-                display: 'flex',
-                marginLeft: '60px'
-            }}>
-            <div>{this.state.goodValue}</div>
-            <div>{this.state.neutralValue}</div>
-            <div>{this.state.badValue}</div>
-        </div>
-    </div>
-    }
+const FeedbackOptions = ({onHandleIncrement}) => {
+    return <div className=''>
+    <GoodButton type='button' name='Good' onClick={onHandleIncrement}>Good</GoodButton>
+    <NeutralButton type='button' name='Neutral' onClick={onHandleIncrement}>Neutral</NeutralButton>
+    <BadButton type='button' name='Bad' onClick={onHandleIncrement}>Bad</BadButton>
+</div>
 }
 
 export default FeedbackOptions
 
 
+
+
+// class FeedbackOptions extends Component {
+//     // constructor() {
+//     //     super();
+//     //     this.state = {
+//     //         value: 0,
+//     //     }
+//     // };
+//     static defaultProps = {
+//         initialGoodValue: 0,
+//         initialNeutralValue:0,
+//         initialBadValue: 0,
+//         initialTotal: 0,
+//         initialPositiveFeedback: 0,
+//     }
+
+//     state = {
+//         goodValue: this.props.initialGoodValue,
+//         neutralValue:this.props.initialNeutralValue,
+//         badValue: this.props.initialBadValue,
+//         total: this.props.initialTotal,
+//         positiveFeedback: this.props.initialPositiveFeedback,
+//     };
+
+
+//     handleIncrement = (e) => {
+//         const buttonName = e.target.name
+//         console.log(buttonName);
+//         if (buttonName === 'Good') {
+//             this.setState(({goodValue}) => {
+//                 return {
+//                     goodValue: goodValue +1
+//                 }
+//             })
+//         }if (buttonName === 'Neutral') {
+//             this.setState(prevState => {
+//                 return {
+//                     neutralValue: prevState.neutralValue +1
+//                 }
+//             })
+//         }if (buttonName === 'Bad') {
+//             this.setState(({badValue}) => {
+//                 return {
+//                     badValue: badValue +1
+//                 }
+//             })
+//         }
+
+//         console.log(this.state);
+//     }
+
+//     countTotalFeedback = () => {
+        
+//             this.setState(({total}) => {
+//                 return{
+//                     total: this.state.goodValue + this.state.neutralValue + this.state.badValue
+//                 }
+                
+//             })
+//             console.log(this.state);
+//         }
+    
+//     countPositiveFeedbackPercentage = () => {
+//         this.setState(({positiveFeedback}) => {
+//             return {
+//                 positiveFeedback: (this.state.goodValue + this.state.neutralValue + this.state.badValue) / 100 * this.state.goodValue * 100
+//             }
+//         })
+//     }
+
+//     render() {
+//         return <div className=''>
+//         <GoodButton type='button' name='Good' onClick={this.handleIncrement}>Good</GoodButton>
+//         <NeutralButton type='button' name='Neutral' onClick={this.handleIncrement}>Neutral</NeutralButton>
+//         <BadButton type='button' name='Bad' onClick={this.handleIncrement}>Bad</BadButton>
+//             <div style={{
+//                 display: 'flex',
+//                 marginLeft: '60px'
+//             }}>
+//             <div>{this.state.goodValue}</div>
+//             <div>{this.state.neutralValue}</div>
+//             <div>{this.state.badValue}</div>
+
+//         </div>
+//     </div>
+//     }
+// }
 
 
 
