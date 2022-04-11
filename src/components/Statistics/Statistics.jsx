@@ -1,5 +1,5 @@
 import styled from '@emotion/styled'
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 const StatisticsWrapper = styled.ul`
     background-color: grey;
@@ -44,32 +44,13 @@ const Statistics = ({good, neutral, bad, total, percentage}) =>{
         </StatisticsWrapper>
       );
 }
+
+Statistics.propTypes = {
+    good: PropTypes.number.isRequired,
+    neutral: PropTypes.number.isRequired,
+    bad: PropTypes.number.isRequired,
+    total: PropTypes.number.isRequired,
+    percentage: PropTypes.number.isRequired,
+  };
 export default Statistics
 
-// class Statistics extends Component {
-
-//     render() {
-//         return (
-//     <ul>
-//         <GoodFeedback>Good:0</GoodFeedback>
-//         <NeutralFeedback>Neutral:0</NeutralFeedback>
-//         <BadFeedback>Bad:0</BadFeedback>
-//     </ul>
-//   );
-//     }
-// }
-
-// export default function Statistics() {
-// return (
-//     <ul>
-//         <li>Good:0</li>
-//         <li>Neutral:0</li>
-//         <li>Bad:0</li>
-//     </ul>
-//   );
-// }
-
-
-// Statistics.propTypes = {
-//   dataStatistics: PropTypes.arrayOf(PropTypes.object).isRequired,
-// };

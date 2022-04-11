@@ -1,5 +1,5 @@
 import styled from '@emotion/styled'
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 const GoodButton = styled.button`
     background-color: blue;
@@ -49,7 +49,22 @@ const FeedbackOptions = ({onHandleIncrement}) => {
 </div>
 }
 
+FeedbackOptions.propTypes = {
+    onHandleIncrement: PropTypes.func.isRequired       
+  };
+
 export default FeedbackOptions
+
+
+
+
+
+
+
+
+
+
+
 
 
 
