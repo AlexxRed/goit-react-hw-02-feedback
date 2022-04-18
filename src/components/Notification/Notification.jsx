@@ -1,11 +1,7 @@
-import styled from '@emotion/styled'
+import { NotificationMessage } from "./Notification.styled"
 
-const NotificationMessage = styled.p`
-    color: red;
-`
-
-const Notification = () => (
-    <NotificationMessage>There is no feedback</NotificationMessage>
+const Notification = ({ message }) => (
+    <NotificationMessage>{ message }</NotificationMessage>
 )
 
 export default Notification

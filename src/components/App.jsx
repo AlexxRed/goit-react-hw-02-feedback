@@ -6,20 +6,32 @@ import Notification from './Notification/Notification';
 
 class App extends Component{
 
-  static defaultProps = {
-    initialGoodValue: 0,
-    initialNeutralValue:0,
-    initialBadValue: 0,
-    initialTotal: 0,
-    initialPositiveFeedback: 0,
-};
+//   static defaultProps = {
+//     initialGoodValue: 0,
+//     initialNeutralValue:0,
+//     initialBadValue: 0,
+//     initialTotal: 0,
+//     initialPositiveFeedback: 0,
+// };
+
+// state = {
+//   goodValue: this.props.initialGoodValue,
+//   neutralValue:this.props.initialNeutralValue,
+//   badValue: this.props.initialBadValue,
+//   total: this.props.initialTotal,
+//   positiveFeedback: this.props.initialPositiveFeedback,
+// };
 
 state = {
-  goodValue: this.props.initialGoodValue,
-  neutralValue:this.props.initialNeutralValue,
-  badValue: this.props.initialBadValue,
-  total: this.props.initialTotal,
-  positiveFeedback: this.props.initialPositiveFeedback,
+  goodValue: 0,
+  neutralValue:0,
+  badValue: 0,
+  total: 0,
+  positiveFeedback: 0,
+};
+
+countFeedback = options => {
+  this.setState({ [options]: this.state[options] + 1 });
 };
 
 handleIncrement = (e) => {
@@ -87,7 +99,7 @@ countPositiveFeedbackPercentage = () => {
          percentage={positivePercentage}
          />
       ) : (
-        <Notification/>
+        <Notification message="There is no feedback"/>
       )}
         </Section>
       </>
