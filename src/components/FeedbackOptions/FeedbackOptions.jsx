@@ -1,23 +1,39 @@
-import {GoodButton, NeutralButton, BadButton} from "./FeedbackOptions.styled"
+import {GoodButton} from "./FeedbackOptions.styled"
 import PropTypes from 'prop-types';
 
 
-const FeedbackOptions = ({onHandleIncrement}) => {
-    return <div className=''>
-    <GoodButton type='button' name='Good' onClick={onHandleIncrement}>Good</GoodButton>
-    <NeutralButton type='button' name='Neutral' onClick={onHandleIncrement}>Neutral</NeutralButton>
-    <BadButton type='button' name='Bad' onClick={onHandleIncrement}>Bad</BadButton>
-</div>
-}
+
+const FeedbackOptions = ({ options, onLeaveFeedback }) => {
+    return (
+      <>
+        {options.map(option => (
+          <GoodButton
+            key={option}
+            type="button"
+            onClick={() => onLeaveFeedback(option)}
+          >
+            {option}
+          </GoodButton>
+        ))}
+      </>
+    );
+  };
 
 FeedbackOptions.propTypes = {
-    onHandleIncrement: PropTypes.func.isRequired       
+    options: PropTypes.arrayOf(PropTypes.string).isRequired,
+    onLeaveFeedback: PropTypes.func.isRequired,  
   };
 
 export default FeedbackOptions
 
 
-
+// const FeedbackOptions = ({onHandleIncrement}) => {
+//     return <div className=''>
+//     <GoodButton type='button' name='Good' onClick={onHandleIncrement}>Good</GoodButton>
+//     <NeutralButton type='button' name='Neutral' onClick={onHandleIncrement}>Neutral</NeutralButton>
+//     <BadButton type='button' name='Bad' onClick={onHandleIncrement}>Bad</BadButton>
+// </div>
+// }
 
 
 

@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
 
 export const GoodButton = styled.button`
-    background-color: blue;
+    background-color: #258c79;
     font-size: 14px;
     padding: 5px;
     margin-right: 10px;
@@ -9,7 +9,7 @@ export const GoodButton = styled.button`
     border-radius: 5px;
     cursor: pointer;
     &:hover,&:focus {
-        color: grey;
+        color: #b81818;
     }
 `
 export const NeutralButton = styled.button`
